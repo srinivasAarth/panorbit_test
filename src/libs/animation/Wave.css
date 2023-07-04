@@ -1,0 +1,35 @@
+svg {
+  width: 100%;
+}
+.wave,
+.wave1 {
+  animation-duration: 8s, 10s, 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.wave {
+  animation-name: wave;
+}
+
+.wave1 {
+  animation-name: wave1;
+}
+
+@keyframes wave {
+  0% {
+    transform: scaleY(1.5) translateX(0%);
+  }
+  100% {
+    transform: scaleY(1.5) translateX(100%);
+  }
+}
+
+@keyframes wave1 {
+  0% {
+    transform: scaleY(1.6) translateX(0%);
+  }
+  100% {
+    transform: scaleY(1.6) translateX(100%);
+  }
+}
