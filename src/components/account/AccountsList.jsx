@@ -1,9 +1,15 @@
 import styled from "@emotion/styled";
-import { Box, Stack, Typography } from "@mui/material";
-import { accountTitleBackground, paper } from "../../constants/colors";
-import { useSelector } from "react-redux";
+import { Box, Stack } from "@mui/material";
+import {
+  accountTitleBackground,
+  keyColor,
+  paper,
+} from "../../constants/colors";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fontFamily } from "../../constants/TypoStyles";
+import { attachUserId } from "../../redux/slice/accountsSlice";
+import Text from "../../libs/Typo/Typography";
 const AccountsRoot = styled(Box)`
   height: 500px;
   width: 650px;
@@ -21,6 +27,17 @@ const FlexBox = styled(Box)`
   justify-content: ${({ justify }) => justify};
   background: ${({ bg }) => bg};
   flex-direction: column;
+  overflow-y: ${({ flow }) => flow};
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${paper};
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${keyColor};
+    border-radius: 0.5rem;
+  }
 `;
 const Item = styled(Stack)`
   height: 3.3rem;
@@ -38,33 +55,32 @@ const Image = styled("img")`
 const AccountsList = () => {
   const { accounts } = useSelector((state) => state.accounts);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <AccountsRoot sx={{ borderRadius: 6, boxShadow: 12 }}>
       <FlexBox
         justify="center"
         sx={{ height: "7rem", display: "flex" }}
         bg={accountTitleBackground}
+        flow="none"
       >
-        <Typography component="h5" variant="h5" sx={{ fontWeight: 600 }}>
-          Select an Account
-        </Typography>
+        <Text text="Select an Account" variant="h5" sx={{ fontWeight: 600 }} />
       </FlexBox>
       <FlexBox
         justify="flex-start"
+        flow="scroll"
         bg={paper}
-        sx={{ height: "auto", overflowY: "scroll" }}
+        sx={{ height: "auto" }}
       >
-        {accounts?.map(({ profilepicture, name }, i) => (
+        {accounts?.map(({ profilepicture, name, id }, i) => (
           <Item
-            onClick={() => navigate(`details/profile/${i}`)}
-            key={name || i}
+            onClick={() => dispatch(attachUserId(id, navigate))}
+            key={id || i}
             direction="row"
             spacing={2}
           >
             <Image src={profilepicture} alt="user" />
-            <Typography sx={{ fontFamily: fontFamily }} variant="body1">
-              {name}
-            </Typography>
+            <Text text={name} variant="body1" />
           </Item>
         ))}
       </FlexBox>

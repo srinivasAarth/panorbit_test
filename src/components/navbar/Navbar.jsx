@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { fontFamily } from "../../constants/TypoStyles";
+import { useSelector } from "react-redux";
+import Text from "../../libs/Typo/Typography";
 const NavRoot = styled(Stack)`
   height: 100%;
   width: 15%;
@@ -23,9 +24,11 @@ const NavItem = styled(Box)`
   justify-content: flex-start;
 `;
 const Navbar = () => {
+  const { userId } = useSelector((state) => state.accounts);
   const navigate = useNavigate();
+
   const Controls = [
-    { name: "Profile", route: "profile" },
+    { name: "Profile", route: `profile/${userId}` },
     { name: "Posts", route: "posts" },
     { name: "Gallary", route: "gallary" },
     { name: "Todo", route: "todo" },
@@ -39,9 +42,7 @@ const Navbar = () => {
     >
       {Controls?.map(({ name, route }, i) => (
         <NavItem onClick={() => navigate(route)} key={route || i}>
-          <Typography sx={{ fontFamily: fontFamily }} variant="body1">
-            {name}
-          </Typography>
+          <Text text={name} variant="body1" />
         </NavItem>
       ))}
     </NavRoot>

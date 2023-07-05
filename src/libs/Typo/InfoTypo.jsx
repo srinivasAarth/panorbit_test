@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { keyColor, valueColor } from "../../constants/colors";
-import { fontFamily } from "../../constants/TypoStyles";
+import Text from "./Typography";
 const InfoBox = styled(Box)`
   width: 100%;
   display: inline-flex;
@@ -27,22 +27,13 @@ const InfoTypo = ({ Key, value }) => {
   return (
     <InfoBox>
       <KeyText>
-        <Typography sx={{ fontFamily: fontFamily }} variant="body1">
-          {Key}
-        </Typography>
+        <Text text={Key} variant="body1" />
       </KeyText>
       <Colon>
-        <Typography sx={{ fontFamily: fontFamily }} variant="body1">
-          :
-        </Typography>
+        <Text text=":" variant="body1" />
       </Colon>
       <Value>
-        <Typography
-          sx={{ fontWeight: 600, fontFamily: fontFamily }}
-          variant="body1"
-        >
-          {value}
-        </Typography>
+        <Text sx={{ fontWeight: 600 }} variant="body1" text={value} />
       </Value>
     </InfoBox>
   );

@@ -1,18 +1,14 @@
-import styled from "@emotion/styled";
-import { Box } from "@mui/material";
-import React from "react";
-const ModelRoot = styled(Box)`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const LoadAndError = ({ content, status, error }) => {
+/* eslint-disable react/no-children-prop */
+
+import ModelLayout from "./layouts/ModelLayout";
+import Text from "./libs/Typo/Typography";
+
+const LoadAndError = (props) => {
+  const { content, status, error } = props;
   return (
     <>
-      {status && <ModelRoot>Loading...</ModelRoot>}
-      {error && <ModelRoot>Got Error</ModelRoot>}
+      {status && <ModelLayout children={<Text text="Loading..." />} />}
+      {error && <ModelLayout children={<Text text="Got error" />} />}
       {!status && !error && content}
     </>
   );

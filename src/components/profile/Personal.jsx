@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack } from "@mui/material";
 import Company from "./Company";
 import InfoTypo from "../../libs/Typo/InfoTypo";
-import { fontFamily } from "../../constants/TypoStyles";
 import { valueColor } from "../../constants/colors";
+import Text from "../../libs/Typo/Typography";
 
 const PersonalRoot = styled(Stack)`
   display: flex;
@@ -31,12 +31,7 @@ const Personal = ({ data = {} }) => {
     <PersonalRoot divider={<Divider orientation="horizontal" flexItem />}>
       <Details>
         <Image src={profilepicture} alt="photo" />
-        <Typography
-          sx={{ py: 1, fontFamily: fontFamily, color: valueColor }}
-          variant="h6"
-        >
-          {name}
-        </Typography>
+        <Text sx={{ py: 1, color: valueColor }} variant="h6" text={name} />
         <InfoTypo Key="Username" value={username} />
         <InfoTypo Key="E-main" value={email} />
         <InfoTypo Key="Phone" value={phone} />

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import InfoTypo from "../../libs/Typo/InfoTypo";
-import { fontFamily } from "../../constants/TypoStyles";
 import { valueColor } from "../../constants/colors";
+import Text from "../../libs/Typo/Typography";
 const Root = styled(Box)`
   height: auto;
   width: 100%;
@@ -15,12 +15,7 @@ const Company = ({ data = {} }) => {
   const { company = {} } = data;
   return (
     <Root>
-      <Typography
-        sx={{ py: 1, fontFamily: fontFamily, color: valueColor }}
-        variant="h6"
-      >
-        Company
-      </Typography>
+      <Text text="Company" sx={{ py: 1, color: valueColor }} variant="h6" />
       <InfoTypo Key="Name" value={company?.name} />
       <InfoTypo Key="catchphrase" value={company?.catchPhrase} />
       <InfoTypo Key="bs" value={company?.bs} />

@@ -5,6 +5,8 @@ import Profile from "./pages/Profile";
 import Posts from "./pages/Posts";
 import Gallary from "./pages/Gallary";
 import Todo from "./pages/Todo";
+import ModelLayout from "./layouts/ModelLayout";
+import Text from "./libs/Typo/Typography";
 
 const routes = [
   {
@@ -18,6 +20,10 @@ const routes = [
       {
         path: "",
         element: <Navigate to="profile" />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       {
         path: "profile/:uid",
@@ -36,6 +42,14 @@ const routes = [
         element: <Todo />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <ModelLayout>
+        <Text variant="h6" text="404 Not Found" />
+      </ModelLayout>
+    ),
   },
 ];
 
