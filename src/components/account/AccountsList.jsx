@@ -14,7 +14,6 @@ const AccountsRoot = styled(Box)`
 `;
 const FlexBox = styled(Box)`
   width: 100%;
-  background: green;
   align-items: center;
   justify-content: ${({ justify }) => justify};
   background: ${({ bg }) => bg};

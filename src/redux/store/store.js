@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { accountsReducer } from "../slice/accountsSlice";
-
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     accounts: accountsReducer,
   },
@@ -10,3 +9,5 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
+
+export { store };

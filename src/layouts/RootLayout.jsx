@@ -6,7 +6,6 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/profile/Header";
 const AppRoot = styled(Container)`
   height: 100vh;
-  background: green;
   padding: 1rem;
   display: flex;
   align-items: flex-start;
@@ -17,15 +16,15 @@ const BodyRoot = styled(Stack)`
   flex: 1;
   background: white;
   display: flex;
+  margin-left: 1rem;
 `;
 const ContentBox = styled(Box)`
   flex-grow: 1;
   width: 100%;
-  background: blue;
 `;
 const RootLayout = ({ children }) => {
   return (
-    <AppRoot maxWidth="lg">
+    <AppRoot>
       <Navbar />
       <BodyRoot divider={<Divider orientation="horizontal" flexItem />}>
         <Header />

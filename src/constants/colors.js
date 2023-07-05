@@ -6,10 +6,14 @@ const colors = {
   },
   paper: "white",
   accountTitleBackground: "#f6f6f6",
+  keyColor: "#adadad",
+  valueColor: "#5b5b5b",
 };
 
 export const {
   wave: { gradientPrimary, gradientDark, gradientLight },
   paper,
   accountTitleBackground,
+  keyColor,
+  valueColor,
 } = colors;

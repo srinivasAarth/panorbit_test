@@ -8,7 +8,7 @@ import Todo from "./pages/Todo";
 
 const routes = [
   {
-    path: "accounts",
+    path: "/",
     element: <Accounts />,
   },
   {

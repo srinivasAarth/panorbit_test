@@ -6,6 +6,7 @@ const HeaderRoot = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: yellow;
 `;
 const Header = () => {
   return (
