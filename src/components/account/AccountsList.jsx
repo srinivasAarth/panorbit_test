@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 import { Box, Stack, Typography } from "@mui/material";
 import { accountTitleBackground, paper } from "../../constants/colors";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fontFamily } from "../../constants/TypoStyles";
 const AccountsRoot = styled(Box)`
   height: 500px;
   width: 650px;
@@ -25,6 +28,7 @@ const Item = styled(Stack)`
   border-bottom: 0.05rem solid #dadada;
   align-items: center;
   margin: 0 2rem;
+  cursor: pointer;
 `;
 const Image = styled("img")`
   width: 2.6rem;
@@ -32,6 +36,8 @@ const Image = styled("img")`
   border-radius: 50%;
 `;
 const AccountsList = () => {
+  const { accounts } = useSelector((state) => state.accounts);
+  const navigate = useNavigate();
   return (
     <AccountsRoot sx={{ borderRadius: 6, boxShadow: 12 }}>
       <FlexBox
@@ -48,13 +54,19 @@ const AccountsList = () => {
         bg={paper}
         sx={{ height: "auto", overflowY: "scroll" }}
       >
-        <Item direction="row" spacing={2}>
-          <Image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtF3o2PvqxOMHgdrpj_YRItsLBjxyTeNZu_Q&usqp=CAU"
-            alt="user"
-          />
-          <Typography>Lenne Graham</Typography>
-        </Item>
+        {accounts?.map(({ profilepicture, name }, i) => (
+          <Item
+            onClick={() => navigate(`details/profile/${i}`)}
+            key={name || i}
+            direction="row"
+            spacing={2}
+          >
+            <Image src={profilepicture} alt="user" />
+            <Typography sx={{ fontFamily: fontFamily }} variant="body1">
+              {name}
+            </Typography>
+          </Item>
+        ))}
       </FlexBox>
     </AccountsRoot>
   );

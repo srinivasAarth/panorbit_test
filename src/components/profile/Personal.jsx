@@ -3,6 +3,7 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import Company from "./Company";
 import InfoTypo from "../../libs/Typo/InfoTypo";
 import { fontFamily } from "../../constants/TypoStyles";
+import { valueColor } from "../../constants/colors";
 
 const PersonalRoot = styled(Stack)`
   display: flex;
@@ -24,20 +25,24 @@ const Details = styled(Box)`
   justify-content: flex-start;
   padding-bottom: 0.5rem;
 `;
-const Personal = () => {
+const Personal = ({ data = {} }) => {
+  const { username, name, phone, website, email, profilepicture } = data;
   return (
     <PersonalRoot divider={<Divider orientation="horizontal" flexItem />}>
       <Details>
-        <Image />
-        <Typography sx={{ py: 1, fontFamily: fontFamily }} variant="h6">
-          Leanne Graham
+        <Image src={profilepicture} alt="photo" />
+        <Typography
+          sx={{ py: 1, fontFamily: fontFamily, color: valueColor }}
+          variant="h6"
+        >
+          {name}
         </Typography>
-        <InfoTypo Key="Username" value="chary" />
-        <InfoTypo Key="E-main" value="chary" />
-        <InfoTypo Key="Phone" value="chary" />
-        <InfoTypo Key="Website" value="chary" />
+        <InfoTypo Key="Username" value={username} />
+        <InfoTypo Key="E-main" value={email} />
+        <InfoTypo Key="Phone" value={phone} />
+        <InfoTypo Key="Website" value={website} />
       </Details>
-      <Company />
+      <Company data={data} />
     </PersonalRoot>
   );
 };

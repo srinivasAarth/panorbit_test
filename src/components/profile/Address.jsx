@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import InfoTypo from "../../libs/Typo/InfoTypo";
 import Map from "./Map";
 import { fontFamily } from "../../constants/TypoStyles";
+import { valueColor } from "../../constants/colors";
 
 const AddressRoot = styled(Box)`
   height: auto;
@@ -12,19 +13,23 @@ const AddressRoot = styled(Box)`
 const AddressDetails = styled(Box)`
   width: 300px;
 `;
-const Address = () => {
+const Address = ({ data = {} }) => {
+  const { address = {} } = data;
   return (
     <AddressRoot>
-      <Typography sx={{ py: 1, fontFamily: fontFamily }} variant="h6">
+      <Typography
+        sx={{ py: 1, fontFamily: fontFamily, color: valueColor }}
+        variant="h6"
+      >
         Address
       </Typography>
       <AddressDetails>
-        <InfoTypo Key="Username" value="nice to meet you" />
-        <InfoTypo Key="E-main" value="nice to meet you" />
-        <InfoTypo Key="Phone" value="nice to meet you" />
-        <InfoTypo Key="Website" value="nice to meet you " />
+        <InfoTypo Key="Street" value={address?.street} />
+        <InfoTypo Key="Suit" value={address?.suite} />
+        <InfoTypo Key="City" value={address?.city} />
+        <InfoTypo Key="Zipcode" value={address?.zipcode} />
       </AddressDetails>
-      <Map />
+      <Map geo={address?.geo || {}} />
     </AddressRoot>
   );
 };

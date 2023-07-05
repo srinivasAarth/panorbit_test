@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import InfoTypo from "../../libs/Typo/InfoTypo";
 import { fontFamily } from "../../constants/TypoStyles";
+import { valueColor } from "../../constants/colors";
 const Root = styled(Box)`
   height: auto;
   width: 100%;
@@ -10,19 +11,19 @@ const Root = styled(Box)`
   align-items: center;
   flex-direction: column;
 `;
-const Company = () => {
+const Company = ({ data = {} }) => {
+  const { company = {} } = data;
   return (
     <Root>
-      <Typography sx={{ py: 1, fontFamily: fontFamily }} variant="h6">
+      <Typography
+        sx={{ py: 1, fontFamily: fontFamily, color: valueColor }}
+        variant="h6"
+      >
         Company
       </Typography>
-      <InfoTypo Key="Username" value="nice to meet you" />
-      <InfoTypo Key="E-main" value="nice to meet you" />
-      <InfoTypo Key="Phone" value="nice to meet you" />
-      <InfoTypo
-        Key="Website"
-        value="nice to meet you jdsjfsdklksd hdkjfgjdfjk jkdsfhgj"
-      />
+      <InfoTypo Key="Name" value={company?.name} />
+      <InfoTypo Key="catchphrase" value={company?.catchPhrase} />
+      <InfoTypo Key="bs" value={company?.bs} />
     </Root>
   );
 };

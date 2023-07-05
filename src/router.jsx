@@ -20,7 +20,7 @@ const routes = [
         element: <Navigate to="profile" />,
       },
       {
-        path: "profile",
+        path: "profile/:uid",
         element: <Profile />,
       },
       {

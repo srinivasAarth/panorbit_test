@@ -1,5 +1,17 @@
 import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
+import { keyColor } from "../../constants/colors";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css";
+import icon from "leaflet/dist/images/marker-icon.png";
+import L from "leaflet";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+});
 
 const MapRoot = styled(Box)`
   width: 100%;
@@ -10,10 +22,11 @@ const MapRoot = styled(Box)`
   justify-content: flex-end;
   flex-direction: column;
 `;
-const MapContainer = styled(Box)`
+const MapBox = styled(Box)`
   height: 18rem;
   width: 100%;
-  background: green;
+  border: 0.05rem solid ${keyColor};
+  overflow: hidden;
 `;
 const LongLat = styled(Box)`
   width: 100%;
@@ -27,16 +40,29 @@ const LongLat = styled(Box)`
   flex-direction: row;
   height: 1.5rem;
 `;
-const Map = ({ lat, long }) => {
+
+L.Marker.prototype.options.icon = DefaultIcon;
+const Map = ({ geo = {} }) => {
   return (
     <MapRoot>
-      <MapContainer sx={{ borderRadius: 3 }}>Hello</MapContainer>
+      <MapBox sx={{ borderRadius: 3 }}>
+        <MapContainer
+          center={[geo?.lat, geo?.lng]}
+          zoom={13}
+          scrollWheelZoom={true}
+        >
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker position={[geo?.lat, geo?.lng]}>
+            {/* <Popup>A-5, sector 33, Noida</Popup> */}
+          </Marker>
+        </MapContainer>
+      </MapBox>
       <LongLat spacing={2}>
         <Typography sx={{ fontSize: 10 }} variant="subtitle1">
-          Lat : 1232{lat}
+          Lat : {geo?.lat}
         </Typography>
         <Typography sx={{ pl: 2, fontSize: 10 }} variant="subtitle1">
-          Long : 65tr{long}
+          Long : {geo?.lng}
         </Typography>
       </LongLat>
     </MapRoot>

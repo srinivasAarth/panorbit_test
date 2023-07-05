@@ -7,6 +7,7 @@ const InfoBox = styled(Box)`
   display: inline-flex;
   align-items: flex-start;
   justify-content: space-between;
+  padding: 0.4rem 0;
 `;
 const KeyText = styled(Box)`
   text-align: right;
