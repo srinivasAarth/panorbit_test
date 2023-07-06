@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Box, Container, Divider, Stack } from "@mui/material";
 import Navbar from "../components/navbar/Navbar";
 import { Outlet } from "react-router-dom";
-import Header from "../components/profile/Header";
+import Header from "../components/header/Header";
 const AppRoot = styled(Container)`
   height: 100vh;
   padding: 1rem;

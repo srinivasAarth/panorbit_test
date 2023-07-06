@@ -22,10 +22,6 @@ const routes = [
         element: <Navigate to="profile" />,
       },
       {
-        path: "profile",
-        element: <Profile />,
-      },
-      {
         path: "profile/:uid",
         element: <Profile />,
       },

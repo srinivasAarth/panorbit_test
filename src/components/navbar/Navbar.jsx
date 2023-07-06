@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import { Box, Divider, Stack } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Text from "../../libs/Typo/Typography";
+import { dividerColor, keyColor, paper } from "../../constants/colors";
 const NavRoot = styled(Stack)`
   height: 100%;
   width: 15%;
@@ -25,6 +26,7 @@ const NavItem = styled(Box)`
 `;
 const Navbar = () => {
   const { userId } = useSelector((state) => state.accounts);
+  const page = useLocation().pathname.split("/")[2];
   const navigate = useNavigate();
 
   const Controls = [
@@ -38,11 +40,21 @@ const Navbar = () => {
     <NavRoot
       spacing={0.3}
       sx={{ borderRadius: 6 }}
-      divider={<Divider orientation="horizontal" flexItem />}
+      divider={
+        <Divider
+          sx={{ bgcolor: dividerColor }}
+          orientation="horizontal"
+          flexItem
+        />
+      }
     >
       {Controls?.map(({ name, route }, i) => (
         <NavItem onClick={() => navigate(route)} key={route || i}>
-          <Text text={name} variant="body1" />
+          <Text
+            sx={{ color: page === name.toLowerCase() ? paper : keyColor }}
+            text={name}
+            variant="body1"
+          />
         </NavItem>
       ))}
     </NavRoot>

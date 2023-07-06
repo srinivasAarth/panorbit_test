@@ -9,6 +9,7 @@ const accountsSlice = createSlice({
     error: false,
     fetchOnce: true,
     userId: false,
+    open: false,
   },
   reducers: {
     setAccounts: (state, { payload }) => {
@@ -26,12 +27,15 @@ const accountsSlice = createSlice({
     setUserId: (state, { payload }) => {
       state.userId = payload;
     },
+    setOpen: (state, { payload }) => {
+      state.open = payload;
+    },
   },
 });
 
 export const attachUserId = (uid, navigate) => (dispatch) => {
   dispatch(setUserId(uid));
-  navigate(`details/profile/${uid}`);
+  navigate(`/details/profile/${uid}`);
 };
 
 export const getAccounts = () => async (dispatch, getState) => {
@@ -48,6 +52,12 @@ export const getAccounts = () => async (dispatch, getState) => {
   }
 };
 
-export const { setAccounts, setStatus, setError, setFetchOnce, setUserId } =
-  accountsSlice.actions;
+export const {
+  setAccounts,
+  setStatus,
+  setError,
+  setFetchOnce,
+  setUserId,
+  setOpen,
+} = accountsSlice.actions;
 export const accountsReducer = accountsSlice.reducer;

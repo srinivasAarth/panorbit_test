@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box, Stack } from "@mui/material";
 import {
   accountTitleBackground,
+  dividerColor,
   keyColor,
   paper,
 } from "../../constants/colors";
@@ -39,15 +40,15 @@ const FlexBox = styled(Box)`
     border-radius: 0.5rem;
   }
 `;
-const Item = styled(Stack)`
+export const Item = styled(Stack)`
   height: 3.3rem;
   width: calc(100% - 4rem);
-  border-bottom: 0.05rem solid #dadada;
+  border-bottom: 0.05rem solid ${dividerColor};
   align-items: center;
   margin: 0 2rem;
   cursor: pointer;
 `;
-const Image = styled("img")`
+export const Image = styled("img")`
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;

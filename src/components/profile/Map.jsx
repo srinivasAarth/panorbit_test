@@ -24,7 +24,7 @@ const MapRoot = styled(Box)`
   flex-direction: column;
 `;
 const MapBox = styled(Box)`
-  height: 18rem;
+  height: 22rem;
   width: 100%;
   border: 0.05rem solid ${keyColor};
   overflow: hidden;
@@ -47,11 +47,12 @@ const Map = ({ geo = {} }) => {
   const { lat, lng } = geo;
   return (
     <MapRoot>
-      <MapBox sx={{ borderRadius: 3 }}>
+      <MapBox sx={{ borderRadius: 3, zIndex: 2 }}>
         <MapContainer
           center={[22.433609512751655, 78.4422937975444]}
           zoom={13}
           scrollWheelZoom={true}
+          style={{ zIndex: "5 !important" }}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker position={[22.433609512751655, 78.4422937975444]}></Marker>

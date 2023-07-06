@@ -8,6 +8,8 @@ const colors = {
   accountTitleBackground: "#f6f6f6",
   keyColor: "#adadad",
   valueColor: "#5b5b5b",
+  signOutBgColor: "#d55151",
+  dividerColor: "#dadada",
 };
 
 export const {
@@ -16,4 +18,6 @@ export const {
   accountTitleBackground,
   keyColor,
   valueColor,
+  signOutBgColor,
+  dividerColor,
 } = colors;

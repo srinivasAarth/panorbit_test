@@ -10,6 +10,7 @@ const PersonalRoot = styled(Stack)`
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
+  padding: 0 1rem;
 `;
 const Image = styled("img")`
   width: 8rem;

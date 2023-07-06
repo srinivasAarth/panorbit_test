@@ -7,11 +7,11 @@ const InfoBox = styled(Box)`
   display: inline-flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 0.4rem 0;
+  padding: 0.6rem 0;
 `;
 const KeyText = styled(Box)`
   text-align: right;
-  width: 150px;
+  width: 100px;
   color: ${keyColor};
 `;
 const Colon = styled(Box)`
