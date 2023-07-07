@@ -8,9 +8,8 @@ import {
 } from "../../constants/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fontFamily } from "../../constants/TypoStyles";
 import { attachUserId } from "../../redux/slice/accountsSlice";
-import Text from "../../libs/Typo/Typography";
+import Text from "../../libs/typo/Typography";
 const AccountsRoot = styled(Box)`
   height: 500px;
   width: 650px;

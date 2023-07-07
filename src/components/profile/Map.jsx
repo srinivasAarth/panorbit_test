@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import L from "leaflet";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import Text from "../../libs/Typo/Typography";
+import Text from "../../libs/typo/Typography";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,

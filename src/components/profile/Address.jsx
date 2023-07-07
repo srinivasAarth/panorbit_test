@@ -3,12 +3,16 @@ import { Box, Typography } from "@mui/material";
 import InfoTypo from "../../libs/Typo/InfoTypo";
 import Map from "./Map";
 import { valueColor } from "../../constants/colors";
-import Text from "../../libs/Typo/Typography";
+import Text from "../../libs/typo/Typography";
+import ChatBox from "./ChatBox";
 
 const AddressRoot = styled(Box)`
   height: auto;
   flex: 1;
   padding: 0 1rem;
+  ${({ theme }) => theme.breakpoints.only("md")} {
+    width: 90%;
+  }
 `;
 const AddressDetails = styled(Box)`
   width: 300px;

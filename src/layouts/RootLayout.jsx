@@ -4,12 +4,14 @@ import { Box, Container, Divider, Stack } from "@mui/material";
 import Navbar from "../components/navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
+import ChatBox from "../components/profile/ChatBox";
 const AppRoot = styled(Container)`
   height: 100vh;
   padding: 1rem;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  position: relative;
 `;
 const BodyRoot = styled(Stack)`
   height: 100%;
@@ -33,6 +35,7 @@ const RootLayout = ({ children }) => {
           <Outlet />
         </ContentBox>
       </BodyRoot>
+      <ChatBox />
     </AppRoot>
   );
 };

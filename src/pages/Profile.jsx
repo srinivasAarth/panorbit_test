@@ -13,6 +13,14 @@ const ProfileRoot = styled(Stack)`
   justify-content: flex-start;
   width: 100%;
   margin: 1rem 0;
+  ${({ theme }) => theme.breakpoints.only("md")} {
+    flex-direction: column;
+    align-items: center;
+  }
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const Profile = () => {
   const { accounts, userId } = useSelector((state) => state.accounts);

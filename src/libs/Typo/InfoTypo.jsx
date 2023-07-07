@@ -21,6 +21,7 @@ const Colon = styled(Box)`
 const Value = styled(Box)`
   text-align: left;
   width: 200px;
+  overflow-wrap: break-word;
   color: ${valueColor};
 `;
 const InfoTypo = ({ Key, value }) => {

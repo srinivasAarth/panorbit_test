@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import { keyColor } from "../constants/colors";
-import Text from "../libs/Typo/Typography";
+import Text from "../libs/typo/Typography";
 
 const Root = styled(Box)`
   flex: 1;

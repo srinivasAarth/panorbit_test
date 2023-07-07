@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Button, Divider, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import Text from "../../libs/Typo/Typography";
+import Text from "../../libs/typo/Typography";
 import { Item, Image } from "../account/AccountsList";
 import {
   dividerColor,

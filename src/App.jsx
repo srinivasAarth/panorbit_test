@@ -9,13 +9,11 @@ import LoadAndError from "./LoadAndError";
 const App = () => {
   const appContent = useRoutes(routes);
   const dispatch = useDispatch();
-  const { status, error, fetchOnce } = useSelector((state) => state.accounts);
+  const { status, error } = useSelector((state) => state.accounts);
   React.useEffect(() => {
-    if (fetchOnce) {
-      dispatch(getAccounts());
-    }
-  }, [dispatch, fetchOnce]);
-  return <LoadAndError content={appContent} status={status} error={error} />;
+    dispatch(getAccounts()); // fetch only once at the app level and store in redux
+  }, [dispatch]);
+  return <LoadAndError content={appContent} status={status} error={error} />; // application level error and load handling component
 };
 
 export default App;

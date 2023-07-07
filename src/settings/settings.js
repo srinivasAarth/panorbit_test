@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
+  // I just configured only breakpoints, we can do with spacing, typography, marign
   breakpoints: {
     values: {
       xs: 0,

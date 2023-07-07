@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box, Menu } from "@mui/material";
-import Text from "../../libs/Typo/Typography";
+import Text from "../../libs/typo/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { setOpen } from "../../redux/slice/accountsSlice";

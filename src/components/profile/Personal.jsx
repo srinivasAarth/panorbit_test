@@ -3,7 +3,7 @@ import { Box, Divider, Stack } from "@mui/material";
 import Company from "./Company";
 import InfoTypo from "../../libs/Typo/InfoTypo";
 import { valueColor } from "../../constants/colors";
-import Text from "../../libs/Typo/Typography";
+import Text from "../../libs/typo/Typography";
 
 const PersonalRoot = styled(Stack)`
   display: flex;
@@ -11,6 +11,9 @@ const PersonalRoot = styled(Stack)`
   justify-content: center;
   margin-right: 1rem;
   padding: 0 1rem;
+  ${({ theme }) => theme.breakpoints.only("md")} {
+    flex-direction: row;
+  }
 `;
 const Image = styled("img")`
   width: 8rem;

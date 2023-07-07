@@ -1,3 +1,4 @@
+// app level colors, easy to change according to client changes
 const colors = {
   wave: {
     gradientPrimary: "#474fc8",

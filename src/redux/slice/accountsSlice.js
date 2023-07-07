@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getDetails } from "../../service/service";
-
+// redux toolkit reducers and actions with slice configuration
 const accountsSlice = createSlice({
   name: "accounts",
   initialState: {
@@ -34,11 +34,13 @@ const accountsSlice = createSlice({
 });
 
 export const attachUserId = (uid, navigate) => (dispatch) => {
+  // store the userObject when we navigate to dashboard or profile
   dispatch(setUserId(uid));
   navigate(`/details/profile/${uid}`);
 };
 
 export const getAccounts = () => async (dispatch, getState) => {
+  // the actual part comes here with async handling in redux for fetching app level data
   try {
     dispatch(setStatus(true));
     const res = await getDetails();
@@ -53,6 +55,7 @@ export const getAccounts = () => async (dispatch, getState) => {
 };
 
 export const {
+  // export all actions
   setAccounts,
   setStatus,
   setError,
