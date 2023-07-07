@@ -43,7 +43,7 @@ const IconBox = styled(Box)`
     top: -1rem;
     right: 0rem;
     border-bottom-right-radius: 50%;
-    box-shadow: 13px 14px 0px 12px ${paper};
+    box-shadow: 0.8rem 0.9rem 0px 0.7rem ${paper};
   }
   &:: after {
     position: absolute;
@@ -53,7 +53,7 @@ const IconBox = styled(Box)`
     bottom: -1rem;
     right: 0rem;
     border-top-right-radius: 50%;
-    box-shadow: 13px -14px 0px 12px ${paper};
+    box-shadow: 0.8rem -0.9rem 0px 0.7rem ${paper};
   }
 `;
 const Navbar = () => {
